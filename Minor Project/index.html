@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillSprint — Job-ready skills in 30 days</title>
+  <meta name="description" content="SkillSprint helps students and graduates learn one in-demand skill at a time — with projects, mentor feedback, and a clear path to interviews." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="SkillSprint home">SkillSprint</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#cta">Get started</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero: brand + one headline + one line + CTA + full-bleed image -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-media" role="img" aria-label="Student working on a laptop near a bright window">
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80"
+          alt=""
+          width="1920"
+          height="1080"
+        />
+      </div>
+      <div class="hero-content">
+        <p class="brand">SkillSprint</p>
+        <h1 id="hero-heading">Master one skill.<br />Land the role.</h1>
+        <p class="hero-lead">
+          Focused 30-day paths for students who want job-ready skills — not endless tutorials.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cta">Start free roadmap</a>
+          <a class="btn btn-ghost" href="#features">See how it works</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features: one job — show why SkillSprint converts learners -->
+    <section class="features" id="features" aria-labelledby="features-heading">
+      <div class="section-inner">
+        <h2 id="features-heading">Built to turn visitors into learners</h2>
+        <p class="section-lead">
+          Every block on this page has one job: clarity, trust, then action.
+        </p>
+
+        <ul class="feature-list">
+          <li class="feature">
+            <span class="feature-num" aria-hidden="true">01</span>
+            <h3>One skill. One path.</h3>
+            <p>
+              No overwhelm. Pick a track — web development, data basics, or UI design —
+              and follow a day-by-day plan with clear milestones.
+            </p>
+          </li>
+          <li class="feature">
+            <span class="feature-num" aria-hidden="true">02</span>
+            <h3>Projects that prove it</h3>
+            <p>
+              Ship portfolio pieces mentors actually review. Recruiters care about
+              finished work, not certificate screenshots.
+            </p>
+          </li>
+          <li class="feature">
+            <span class="feature-num" aria-hidden="true">03</span>
+            <h3>Feedback that moves you</h3>
+            <p>
+              Weekly mentor check-ins catch mistakes early so you finish the sprint
+              interview-ready — not stuck halfway.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Social proof strip: supports conversion without cluttering the hero -->
+    <section class="proof" aria-labelledby="proof-heading">
+      <div class="section-inner proof-inner">
+        <h2 id="proof-heading" class="visually-hidden">Results</h2>
+        <p class="proof-stat">
+          <span class="proof-number">2,400+</span>
+          students started a sprint last year
+        </p>
+        <p class="proof-quote">
+          “I stopped hopping between free courses. In four weeks I had a live project
+          and my first internship interview.”
+          <cite>— Ananya R., BCA graduate</cite>
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA + lead form -->
+    <section class="cta" id="cta" aria-labelledby="cta-heading">
+      <div class="section-inner cta-grid">
+        <div class="cta-copy">
+          <h2 id="cta-heading">Get your free 30-day roadmap</h2>
+          <p>
+            Tell us your goal. We’ll email a personalized skill path and the first
+            three practice tasks — no payment required.
+          </p>
+        </div>
+
+        <form class="lead-form" action="#" method="post" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@college.edu" required />
+          </div>
+          <div class="field">
+            <label for="track">I want to learn</label>
+            <select id="track" name="track" required>
+              <option value="" disabled selected>Choose a track</option>
+              <option value="web">Web Development (HTML, CSS, JS)</option>
+              <option value="data">Data Basics</option>
+              <option value="ui">UI Design Fundamentals</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Send my roadmap</button>
+          <p class="form-note">Takes under a minute. Unsubscribe anytime.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><span class="logo">SkillSprint</span> — Minor project landing page · HTML &amp; CSS</p>
+    <p class="footer-meta">Designed for conversion: clear hierarchy, focused CTAs, mobile-ready layout.</p>
+  </footer>
+</body>
+</html>
