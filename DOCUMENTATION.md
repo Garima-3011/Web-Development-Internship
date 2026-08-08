@@ -255,7 +255,7 @@ Order matters: dependencies load **before** the page script that uses them.
 
 ### `settings.html` — Settings
 
-**Role:** Edit profile stored in the session; toggle contrast theme; clear session.
+**Role:** Edit profile stored in the session; toggle soft dark mode; clear session.
 
 **Key elements:**
 
@@ -266,7 +266,7 @@ Order matters: dependencies load **before** the page script that uses them.
 | `#profileName` | Editable name |
 | `#profileEmail` | Editable email |
 | `#profileRole` | Read-only role |
-| `#themeToggle` | Contrast theme switch |
+| `#themeToggle` | Dark mode switch |
 | `#resetDemo` | Sign out and clear session |
 
 ---
@@ -300,10 +300,10 @@ Defines the design system on `:root`:
 **Theme override:**
 
 ```css
-[data-theme="contrast"] { /* stronger borders/text */ }
+[data-theme="dark"] { /* soft slate dark theme */ }
 ```
 
-JavaScript sets `data-theme` on `<html>` when the user toggles contrast in Settings.
+JavaScript sets `data-theme` on `<html>` when the user toggles dark mode in Settings.
 
 ---
 
@@ -623,7 +623,7 @@ That is why script **order** in HTML is important.
 |---------------|----------------|
 | Logged-in user | `localStorage` → `skillsprint_session` |
 | Remembered email | `localStorage` → `skillsprint_remember` |
-| Contrast theme | `localStorage` → `skillsprint_theme` + `data-theme` on `<html>` |
+| Dark mode | `localStorage` → `skillsprint_theme` + `data-theme` on `<html>` |
 | Students table filters | In-memory object inside `customers.js` |
 | Chart data | Static `PulseData` (not editable by user) |
 
@@ -726,7 +726,7 @@ Other charts stay as-is (only progress series is range-aware in the mock data).
 ```
 Theme toggle:
   change on #themeToggle
-  → applyTheme("contrast" | "light")
+  → applyTheme("dark" | "light")
   → sets data-theme + localStorage
 
 Save profile:

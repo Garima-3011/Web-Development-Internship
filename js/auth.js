@@ -104,15 +104,16 @@ function getRememberedEmail() {
 }
 
 function applyTheme(theme) {
-  const value = theme === "contrast" ? "contrast" : "light";
+  // Migrate legacy "contrast" preference to dark mode
+  let value = theme === "dark" || theme === "contrast" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", value);
   localStorage.setItem(THEME_KEY, value);
+  return value;
 }
 
 function loadTheme() {
   const saved = localStorage.getItem(THEME_KEY) || "light";
-  applyTheme(saved);
-  return saved;
+  return applyTheme(saved);
 }
 
 function getInitials(name) {

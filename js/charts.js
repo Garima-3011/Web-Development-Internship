@@ -1,21 +1,40 @@
-const ChartTheme = {
-  primary: "#0c6e72",
-  primarySoft: "rgba(12, 110, 114, 0.15)",
-  accent: "#c45c26",
-  info: "#0369a1",
-  warning: "#b45309",
-  success: "#0f766e",
-  muted: "#94a3b8",
-  grid: "#dce8ee",
-  text: "#3a4a57",
-  palette: ["#0c6e72", "#0369a1", "#c45c26", "#0f766e", "#7c6f64"],
-};
+function getChartTheme() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+
+  if (isDark) {
+    return {
+      primary: "#3dabae",
+      primarySoft: "rgba(61, 171, 174, 0.22)",
+      accent: "#d4895a",
+      info: "#5aa8d4",
+      warning: "#d4a054",
+      success: "#4aad9a",
+      muted: "#8b9aa6",
+      grid: "#3a4652",
+      text: "#b4c0ca",
+      palette: ["#3dabae", "#5aa8d4", "#d4895a", "#4aad9a", "#a89b8c"],
+    };
+  }
+
+  return {
+    primary: "#0c6e72",
+    primarySoft: "rgba(12, 110, 114, 0.15)",
+    accent: "#c45c26",
+    info: "#0369a1",
+    warning: "#b45309",
+    success: "#0f766e",
+    muted: "#94a3b8",
+    grid: "#dce8ee",
+    text: "#3a4a57",
+    palette: ["#0c6e72", "#0369a1", "#c45c26", "#0f766e", "#7c6f64"],
+  };
+}
 
 Chart.defaults.font.family = "'Sora', system-ui, sans-serif";
-Chart.defaults.color = ChartTheme.text;
 Chart.defaults.plugins.legend.labels.usePointStyle = true;
 Chart.defaults.plugins.legend.labels.boxWidth = 8;
 Chart.defaults.plugins.legend.labels.padding = 16;
+Chart.defaults.color = getChartTheme().text;
 
 function hideSkeleton(id) {
   const el = document.getElementById(id);
@@ -39,8 +58,8 @@ function createWeeklyProgressChart(canvasId, rangeKey = "30d") {
         {
           label: "Avg. completion %",
           data,
-          borderColor: ChartTheme.primary,
-          backgroundColor: ChartTheme.primarySoft,
+          borderColor: getChartTheme().primary,
+          backgroundColor: getChartTheme().primarySoft,
           fill: true,
           tension: 0.35,
           pointRadius: 4,
@@ -69,7 +88,7 @@ function createWeeklyProgressChart(canvasId, rangeKey = "30d") {
         y: {
           beginAtZero: true,
           max: 100,
-          grid: { color: ChartTheme.grid },
+          grid: { color: getChartTheme().grid },
           border: { display: false },
           ticks: {
             callback: (v) => `${v}%`,
@@ -99,7 +118,7 @@ function createCoursePopularityChart(canvasId) {
         {
           label: "Enrollments",
           data: PulseData.coursePopularity.enrollments,
-          backgroundColor: ChartTheme.primary,
+          backgroundColor: getChartTheme().primary,
           borderRadius: 6,
           maxBarThickness: 36,
         },
@@ -118,7 +137,7 @@ function createCoursePopularityChart(canvasId) {
         },
         y: {
           beginAtZero: true,
-          grid: { color: ChartTheme.grid },
+          grid: { color: getChartTheme().grid },
           border: { display: false },
         },
       },
@@ -139,7 +158,7 @@ function createChannelChart(canvasId) {
       datasets: [
         {
           data: PulseData.channelSplit.data,
-          backgroundColor: ChartTheme.palette,
+          backgroundColor: getChartTheme().palette,
           borderWidth: 0,
           hoverOffset: 6,
         },
@@ -175,14 +194,14 @@ function createComparisonChart(canvasId) {
         {
           label: "New enrollments",
           data: PulseData.monthlyComparison.signups,
-          backgroundColor: ChartTheme.primary,
+          backgroundColor: getChartTheme().primary,
           borderRadius: 6,
           maxBarThickness: 28,
         },
         {
           label: "Projects completed",
           data: PulseData.monthlyComparison.conversions,
-          backgroundColor: ChartTheme.accent,
+          backgroundColor: getChartTheme().accent,
           borderRadius: 6,
           maxBarThickness: 28,
         },
@@ -201,7 +220,7 @@ function createComparisonChart(canvasId) {
         },
         y: {
           beginAtZero: true,
-          grid: { color: ChartTheme.grid },
+          grid: { color: getChartTheme().grid },
           border: { display: false },
         },
       },
@@ -223,7 +242,7 @@ function createEngagementChart(canvasId) {
         {
           label: "Active learners",
           data: PulseData.engagement.dau,
-          borderColor: ChartTheme.primary,
+          borderColor: getChartTheme().primary,
           backgroundColor: "transparent",
           tension: 0.3,
           borderWidth: 2.5,
@@ -232,7 +251,7 @@ function createEngagementChart(canvasId) {
         {
           label: "Study sessions",
           data: PulseData.engagement.sessions,
-          borderColor: ChartTheme.info,
+          borderColor: getChartTheme().info,
           backgroundColor: "transparent",
           tension: 0.3,
           borderWidth: 2.5,
@@ -252,7 +271,7 @@ function createEngagementChart(canvasId) {
         x: { grid: { display: false }, border: { display: false } },
         y: {
           beginAtZero: true,
-          grid: { color: ChartTheme.grid },
+          grid: { color: getChartTheme().grid },
           border: { display: false },
         },
       },
@@ -274,12 +293,10 @@ function createFunnelChart(canvasId) {
         {
           label: "Students",
           data: PulseData.funnel.data,
-          backgroundColor: [
-            "rgba(12, 110, 114, 0.95)",
-            "rgba(12, 110, 114, 0.75)",
-            "rgba(12, 110, 114, 0.55)",
-            "rgba(12, 110, 114, 0.35)",
-          ],
+          backgroundColor: (() => {
+            const p = getChartTheme().primary;
+            return [`${p}f2`, `${p}bf`, `${p}8c`, `${p}59`];
+          })(),
           borderRadius: 8,
           maxBarThickness: 48,
         },
@@ -295,7 +312,7 @@ function createFunnelChart(canvasId) {
       scales: {
         x: {
           beginAtZero: true,
-          grid: { color: ChartTheme.grid },
+          grid: { color: getChartTheme().grid },
           border: { display: false },
         },
         y: {

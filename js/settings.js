@@ -14,11 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
   roleInput.value = session.role || "User";
 
   const currentTheme = localStorage.getItem("skillsprint_theme") || "light";
-  themeToggle.checked = currentTheme === "contrast";
+  themeToggle.checked = currentTheme === "dark" || currentTheme === "contrast";
 
   themeToggle?.addEventListener("change", () => {
-    applyTheme(themeToggle.checked ? "contrast" : "light");
-    showAlert("Display preference updated.", "success");
+    applyTheme(themeToggle.checked ? "dark" : "light");
   });
 
   form?.addEventListener("submit", (e) => {

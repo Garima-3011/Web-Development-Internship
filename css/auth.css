@@ -99,3 +99,26 @@
   font-size: 0.8rem;
   color: var(--color-text-muted);
 }
+
+[data-theme="dark"] .auth-page {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(61, 171, 174, 0.14), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 80%, rgba(212, 137, 90, 0.1), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 70% 10%, rgba(90, 168, 212, 0.08), transparent 45%),
+    linear-gradient(160deg, #1a2229 0%, #1e282f 50%, #222b33 100%);
+}
+
+[data-theme="dark"] .auth-page::before {
+  background-image:
+    linear-gradient(rgba(61, 171, 174, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 171, 174, 0.05) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .auth-card {
+  background: rgba(35, 44, 52, 0.92);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .auth-demo code {
+  color: var(--color-primary);
+}

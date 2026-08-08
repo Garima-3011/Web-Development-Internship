@@ -45,7 +45,7 @@ Alternate: `mentor@skillsprint.edu` / `mentor123`
 ### Other pages
 - **Analytics** — progress ranges, enrollments vs projects, engagement, placement funnel
 - **Students** — search, status filter, sort, pagination
-- **Settings** — profile in session, contrast theme toggle
+- **Settings** — profile in session, soft dark mode toggle
 - **Login** — remember-me + session guard on protected pages
 
 ## Project structure
